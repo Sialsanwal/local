@@ -280,7 +280,7 @@ def ConceptualCaptions(args, smalldata=False, testset=True):
     :return: test_dataset if :code:`testset` else (train_dataset, valid_dataset)
     """
     # Load the Hugging Face dataset
-    dset = load_dataset("lambdalabs/pokemon-blip-captions")
+    dset = load_dataset("JawadIshtiaq/Shoe_Designs")
 
     if smalldata:
         num = 16
