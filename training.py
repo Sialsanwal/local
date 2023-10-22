@@ -269,51 +269,6 @@ class MinimagenDataset(torch.utils.data.Dataset):
         return {'image': img, 'encoding': enc, 'mask': msk}
 
 
-# def ConceptualCaptions(args, smalldata=False, testset=False):
-#     """
-#     Load `conceptual captions dataset <https://ai.google.com/research/ConceptualCaptions/>`_
-
-#     :param args: Arguments Namespace/dictionary parsed from :func:`~.minimagen.training.get_minimagen_parser`
-#     :param smalldata: Whether to return a small subset of the data (for testing code)
-#     :param testset: Whether to return the testing set (vs training/valid)
-#     :return: test_dataset if :code:`testset` else (train_dataset, valid_dataset)
-#     """
-#     dset = load_dataset("JawadIshtiaq/Shoe_Designs")
-#     if smalldata:
-#         num = 16
-#         vi = dset['validation']['image_url'][:num]
-#         vc = dset['validation']['caption'][:num]
-#         ti = dset['train']['image_url'][:num]
-#         tc = dset['train']['caption'][:num]
-#         dset = datasets.Dataset = {'train': {
-#             'image_url': ti,
-#             'caption': tc,
-#         }, 'num_rows': num,
-#             'validation': {
-#                 'image_url': vi,
-#                 'caption': vc, }, 'num_rows': num}
-
-#     if testset:
-#         # Torch test dataset
-#         test_dataset = MinimagenDataset(dset, max_length=args.MAX_NUM_WORDS, train=False, encoder_name=args.T5_NAME,
-#                                         side_length=args.IMG_SIDE_LEN)
-#         return test_dataset
-#     else:
-#         # Torch train/valid dataset
-#         dataset_train_valid = MinimagenDataset(dset, max_length=args.MAX_NUM_WORDS, encoder_name=args.T5_NAME,
-#                                                train=True,
-#                                                side_length=args.IMG_SIDE_LEN)
-
-#         # Split into train/valid
-#         train_size = int(args.TRAIN_VALID_FRAC * len(dataset_train_valid))
-#         valid_size = len(dataset_train_valid) - train_size
-#         train_dataset, valid_dataset = torch.utils.data.random_split(dataset_train_valid, [train_size, valid_size])
-#         if args.VALID_NUM is not None:
-#             valid_dataset.indices = valid_dataset.indices[:args.VALID_NUM + 1]
-#         return train_dataset, valid_dataset
-# from datasets import load_dataset
-# import torch
-# from your_custom_module import MinimagenDataset  # You should import your custom dataset module here
 
 def ConceptualCaptions(args, smalldata=False, testset=True):
     """
