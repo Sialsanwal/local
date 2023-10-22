@@ -278,7 +278,7 @@ class MinimagenDataset(torch.utils.data.Dataset):
 #     :param testset: Whether to return the testing set (vs training/valid)
 #     :return: test_dataset if :code:`testset` else (train_dataset, valid_dataset)
 #     """
-#     dset = load_dataset("conceptual_captions")
+#     dset = load_dataset("JawadIshtiaq/Shoe_Designs")
 #     if smalldata:
 #         num = 16
 #         vi = dset['validation']['image_url'][:num]
